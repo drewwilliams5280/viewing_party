@@ -5,7 +5,7 @@ RSpec.describe "As a visitor" do
     visit '/'
     expect(page).to have_content("Welcome to Viewing Party!")
     expect(page).to have_content("Viewing Party is an app that lets you")
-    expect(page).to have_link("Log In")
+    expect(page).to have_button("Log In")
     expect(page).to have_link("Register")
   end
 
