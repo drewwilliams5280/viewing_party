@@ -1,5 +1,11 @@
 <h1>Welcome to Viewing Party!</h1>
 <h3>Viewing Party is an app that lets you watch movies with your friends.</h3>
 
-<%= link_to 'Log In' %>
+<%= form_tag '/login', method: :post do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Log In" %>
+<% end %>
 <%= link_to 'Register' %>
