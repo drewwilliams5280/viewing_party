@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   post '/registration', to: 'users#create'
 
   get '/discover', to: 'discover_movies#index'
+
+  post '/friendship', to: 'friendships#create'
 end

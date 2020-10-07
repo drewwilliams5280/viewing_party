@@ -55,13 +55,12 @@ RSpec.describe "As a User" do
     within "#friends-#{@user.id}" do
       expect(page).to have_content('Friends')
       expect(page).to have_content('You have no friends added yet')
-      expect(page).to have_field('email', :value => 'Friends Email')
+      expect(page).to have_field('email')
       expect(page).to have_button('Add Friend')
-      # click_on 'Add Friend'
     end
   end
 
-  xit "can add friend" do
+  it "can add friend" do
     alex = User.create(name: 'Alex', email: 'alex@email.com', password: '123')
 
     within "#friends-#{@user.id}" do
@@ -78,7 +77,7 @@ RSpec.describe "As a User" do
     end
   end
 
-  xit "can not add friend because that are not in the system" do
+  it "can not add friend because they are not in the system" do
     within "#friends-#{@user.id}" do
       fill_in :email, with: 'bobsmith@email.com'
       click_on 'Add Friend'
