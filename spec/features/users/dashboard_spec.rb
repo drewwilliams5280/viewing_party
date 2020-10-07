@@ -87,9 +87,9 @@ RSpec.describe "As a User" do
     expect(page).to have_content("Sorry your friend cannot be found")
   end
 
-  xit "sees a viewing parties section" do
-    within "#viewing_parties-#{@user.id}" do
-      expect(page).to have_content(@user.viewing_parties.first.movie.title)
+  it "sees a viewing parties section" do
+    within "#viewing-parties-#{@user.id}" do
+      expect(page).to have_content('Viewing Parties')
     end
   end
 
