@@ -1,6 +1,7 @@
 FactoryBot.define do
-  Factory :user do
-    name {Faker::WorldCup.roster}
-    email {}
+  factory :user do
+    name { Faker::WorldCup.roster }
+    email { Faker::Internet.email }
+    password { Faker::Internet.password}
   end
 end
