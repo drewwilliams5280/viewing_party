@@ -12,5 +12,7 @@ script:
 deploy:
   provider: heroku
   api_key: 96961756-75ea-48bc-bb73-34c1307f5d0c
+  on:
+    branches: main
   app:
   run: rails db:migrate

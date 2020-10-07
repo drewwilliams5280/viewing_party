@@ -4,19 +4,18 @@ RSpec.describe "As a visitor" do
   before :each do
     @user = User.create(name: "Drewni Coliams", email: "drewnicoliams@email.com", password: "123")
   end
-
+  
   it "I can log in" do
     visit '/'
-
     fill_in "email", with: @user.email
-    fill_in "password", with: "1234"
+    fill_in "password", with: "5678"
 
     click_on "Log In"
 
     expect(page).to have_content("Your login credentials are incorrect")
 
     fill_in "email", with: @user.email
-    fill_in "password", with: "123"
+    fill_in "password", with: @user.password
 
     click_on "Log In"
 
