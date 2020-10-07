@@ -1,5 +1,5 @@
-FactoryBot.define do
-  Factory :welcome do
-    description {Faker::Lorem.word}
-  end
-end
+# FactoryBot.define do
+#   factory :welcome do
+#     description {Faker::Lorem.word}
+#   end
+# end
