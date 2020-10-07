@@ -9,4 +9,11 @@ RSpec.describe "As a visitor" do
     expect(page).to have_link("Register")
   end
 
+  it "can click register link" do
+    visit '/'
+    expect(page).to have_link("Register")
+    click_on "Register"
+    expect(current_path).to eq("/registration")
+  end
+
 end
