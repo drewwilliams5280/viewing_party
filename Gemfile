@@ -20,7 +20,7 @@ gem 'bcrypt'
 group :development, :test do
   gem 'pry'
   gem 'travis'
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'faker'
 end
 
