@@ -70,7 +70,7 @@ RSpec.describe "Movies show page" do
     it "has movie details", :vcr do
       expect(page).to have_content(@movie.title)
       expect(page).to have_content(@movie.vote_average)
-      expect(page).to have_content(@movie.runtime)
+      expect(page).to have_content(@movie.runtime_in_hours)
       @movie.genres.each do |genre|
         expect(page).to have_content(genre)
       end

@@ -24,7 +24,7 @@ class MovieFacade
   end
 
   def self.top_ten_cast(id)
-    MovieService.top_ten_cast(id)[:cast][0..9].map do |cast_member_details|
+    MovieService.credits(id)[:cast][0..9].map do |cast_member_details|
       CastMember.new(cast_member_details)
     end
   end
