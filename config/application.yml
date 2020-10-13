@@ -9,4 +9,4 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-MOVIE_API_Key: "c108b7de5c5c2b7107fb9fb4fd0dec84"
+MOVIE_API_KEY: "c108b7de5c5c2b7107fb9fb4fd0dec84"

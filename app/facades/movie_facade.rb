@@ -1,5 +1,4 @@
 class MovieFacade
-
   def self.top_rated
     MovieService.top_rated.map do |movie_data|
       Movie.new(movie_data)
@@ -28,5 +27,4 @@ class MovieFacade
       CastMember.new(cast_member_details)
     end
   end
-
 end

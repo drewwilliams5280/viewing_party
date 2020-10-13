@@ -25,9 +25,4 @@ class Movie
     rest = @runtime % 60
     "#{hours} hr #{rest} min"
   end
-
-  # def reviews
-  #   MovieFacade.reviews(@id)
-  # end
-
 end
