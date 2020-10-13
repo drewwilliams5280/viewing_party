@@ -16,14 +16,18 @@ class Movie
 
   def genres
     @attributes[:genres].map do |genre|
-      genre[:name] if attributes[:genres]
+      genre[:name]
     end
   end
 
-  def reviews
-    MovieService.reviews(@id)[:results].map do |review_details|
-      review = Review.new(review_details)
-    end
+  def runtime_in_hours
+    hours = @runtime / 60
+    rest = @runtime % 60
+    "#{hours} hr #{rest} min"
   end
+
+  # def reviews
+  #   MovieFacade.reviews(@id)
+  # end
 
 end

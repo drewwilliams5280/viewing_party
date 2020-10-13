@@ -12,4 +12,11 @@ RSpec.describe 'Movie Facade' do
     expect(movies.first).to be_a(Movie)
     expect(movies.first.title).to be_a(String)
   end
+  it "can get reviews", :vcr do
+    movie = MovieFacade.search('shawshank redemption').last
+    reviews = MovieFacade.reviews(movie.id)
+    expect(reviews).to be_an(Array)
+    expect(reviews.first).to be_a(Review)
+    expect(reviews.first.author).to be_a(String)
+  end
 end

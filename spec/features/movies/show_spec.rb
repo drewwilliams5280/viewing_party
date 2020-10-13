@@ -75,9 +75,30 @@ RSpec.describe "Movies show page" do
         expect(page).to have_content(genre)
       end
       expect(page).to have_content(@movie.summary)
-      expect(page).to have_content(@movie.cast)
-      expect(page).to have_content(@movie.review_count)
-      expect(page).to have_content(@movie.review_author)
+    end
+
+    it "has movie reviews", :vcr do
+      attrs = {
+      "author": "elshaarawy",
+      "content": "very good movie 9.5/10 محمد الشعراوى",
+      "id": "5723a329c3a3682e720005db",
+      "url": "https://www.themoviedb.org/review/5723a329c3a3682e720005db"
+      }
+      review = Review.new(attrs)
+      expect(page).to have_content(review.author)
+      expect(page).to have_content(review.content)
+    end
+
+    it "has top 10 cast members", :vcr do
+      attrs =  {
+      "character": "Andy Dufresne",
+      "name": "Tim Robbins"
+      }
+      cast_member = CastMember.new(attrs)
+      within(".cast") do
+        expect(page).to have_content(cast_member.name)
+        expect(page).to have_content(cast_member.character)
+      end
     end
   end
 end

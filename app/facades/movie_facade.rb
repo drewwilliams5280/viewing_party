@@ -14,12 +14,18 @@ class MovieFacade
 
   def self.movie_details(id)
     movie_details = MovieService.movie_details(id)
-    movie = Movie.new(movie_details)
+    Movie.new(movie_details)
   end
 
   def self.reviews(id)
     MovieService.reviews(id)[:results].map do |review_details|
-      review = Review.new(review_details)
+      Review.new(review_details)
+    end
+  end
+
+  def self.top_ten_cast(id)
+    MovieService.top_ten_cast(id)[:cast][0..9].map do |cast_member_details|
+      CastMember.new(cast_member_details)
     end
   end
 

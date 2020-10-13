@@ -22,6 +22,13 @@ class MovieService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def self.top_ten_cast(id)
+    response = conn.get("/3/movie/#{id}/credits") do |f|
+      f.params[:api_key] = ENV['MOVIE_API_KEY']
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   private
 
   # def to_json(url)
