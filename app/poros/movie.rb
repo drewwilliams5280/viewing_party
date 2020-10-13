@@ -20,4 +20,10 @@ class Movie
     end
   end
 
+  def reviews
+    MovieService.reviews(@id)[:results].map do |review_details|
+      review = Review.new(review_details)
+    end
+  end
+
 end

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   get '/discover', to: 'discover#index'
 
-  resources :movies, only: [:index]
+  resources :movies, only: [:index, :show]
+  resources :viewing_party, only: [:new]
 
   post '/friendship', to: 'friendships#create'
 end
