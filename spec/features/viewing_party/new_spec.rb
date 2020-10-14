@@ -4,7 +4,7 @@ RSpec.describe 'New viewing party page' do
   before :each do
     @drewni = User.create(name: "Drewni Coliams", email: "drewnicoliams@email.com", password: "123")
     @hank = User.create(name: "Hank Hill", email: "hank@email.com", password: "123")
-    @domer = User.create(name: "Homer Simpson", email: "homer@email.com", password: "123")
+    @homer = User.create(name: "Homer Simpson", email: "homer@email.com", password: "123")
 
     @friendship1 = Friendship.create(friend: @drewni, user: @hank)
     @friendship2 = Friendship.create(friend: @hank, user: @drewni)
@@ -38,20 +38,20 @@ RSpec.describe 'New viewing party page' do
 
   it "can see a form with the following details", :vcr do
     expect(current_path).to eq("/viewing_party/new")
-
+    # save_and_open_page
     expect(page).to have_content(@movie.title)
-    expect(page).to have_content(@movie.runtime)
+    expect(find_field(:duration).value).to eq("#{@movie.runtime}")
     expect(page).to have_field(:date)
     fill_in :date, with: "10/13/2020"
-    expect(page).to have_field(:start_time)
-    fill_in :start_time, with: "4:00"
-    expect(page).to have_content(@homer.email)
-    expect(page).to have_content(@hank.email)
-    check("#{@homer.email}")
-    check("#{@hank.email}")
+    expect(page).to have_field(:time)
+    fill_in :time, with: "4:00"
+    expect(page).to have_content(@homer.name)
+    expect(page).to have_content(@hank.name)
+    check("#{@homer.name}")
+    check("#{@hank.name}")
     expect(page).to have_button("Create Party")
     click_on "Create Party"
 
-    expect(current_path).to eq("/viewing_party/create")
+    expect(current_path).to eq("/viewing_party")
   end
 end
