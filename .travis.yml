@@ -11,8 +11,10 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  api_key: 96961756-75ea-48bc-bb73-34c1307f5d0c
+  api_key:
+    secure: f8wJPgJGwiI/tvpJ23C5aMcl7h/oIpS2lROQ37MQb7Nj8XABl0cuE1lBXamJPgZDt1cTxwk/dKWGom7F8rBSn2Vu5vMsEnrtQOOgKnKYxoASLjaWnBBzKN4A8Nz2TyIfORU00IJZNL3mZ1b2Y+fR8c4ANaYBSOJ4jQ2+BE9TkBRC+ZHrBY+00Smdvx9z3uc/+TEehabC7h9f0oVGJ6vcRJlrRl9R6cIhhpPxU9QGIQs5X3+LpVq573lTUBsNBDH0uolcPoP43O+kLxVeuyU1AZmABfNWijT7apGlONqcVdzAglobIneewyGosvR6079emAF+lKyoqlbhC2EaLmdlIFSKTMTTYLi30PmMYFmKzJLWbbvlDbNudwwM33b582fX1Ne60x0wKxLibuQUKSjOoyihJ3gM0lW4CDWPat2MyUGgSo4wHVJAjri+ADaqh7euXT6ngaaPUmsmht8fggC1W0NmgOpDIlp92hbqRCnQsEyfnRGt6OQIG+jXOnHliLdaxjA8e3Jowl1sQclfLFbCLaXXdXzti1A/h/xtGJrbjvcX7WOJbQcnA0eKm/9LlXcrponCm+SibO6lB1JyYpFZ820PkHdLUieKNvNmiOZ+5vt34GloFwjpPWep3oBd1pQpBWKHg5MGsT+sdrikjjdq2GgAy/b1z+0VmSwZJNqDHmw=
+  app: viewing-party-drew
   on:
-    branches: main
-  app:
-  run: rails db:migrate
+    repo: drewwilliams5280/viewing_party
+    branch: main
+  skip_cleanup: 'true'
