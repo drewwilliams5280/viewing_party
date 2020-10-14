@@ -6,8 +6,8 @@ class Movie
               :title,
               :runtime
   attr_accessor :reviews,
-                :cast
-
+                :cast,
+                :trailer_url
   def initialize(attributes)
     @attributes = attributes
     @id = attributes[:id]
@@ -17,6 +17,7 @@ class Movie
     @runtime = attributes[:runtime]
     @reviews = []
     @cast = []
+    @trailer_url = ""
   end
 
   def genres

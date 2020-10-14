@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :password, presence: true
 
-  has_many :movie_parties
+  has_many :movie_parties, dependent: :destroy
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 

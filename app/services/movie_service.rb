@@ -19,33 +19,37 @@ class MovieService
     to_json("/3/movie/#{id}/credits")
   end
 
+  def self.videos(id)
+    to_json("/3/movie/#{id}/videos")
+  end
+
   def self.top_rated_page_one
-    to_json("/3/movie/top_rated", {language: "en-US", page:1})
+    to_json('/3/movie/top_rated', { language: 'en-US', page: 1 })
   end
 
   def self.top_rated_page_two
-    to_json("/3/movie/top_rated", {language: "en-US", page:2})
+    to_json('/3/movie/top_rated', { language: 'en-US', page: 2 })
   end
 
   def self.search_page_one(keyword)
-    to_json("/3/search/movie", {language: "en-US", page:1, query:keyword, include_adult:false})
+    to_json('/3/search/movie', { language: 'en-US', page: 1, query: keyword, include_adult: false })
   end
 
   def self.search_page_two(keyword)
-    to_json("/3/search/movie", {language: "en-US", page:2, query:keyword, include_adult:false})
+    to_json('/3/search/movie', { language: 'en-US', page: 2, query: keyword, include_adult: false })
   end
 
-  private
-
-  def self.to_json(url, params={})
+  def self.to_json(url, params = {})
+    private
     response = conn.get(url) do |f|
       f.params = params
       f.params[:api_key] = ENV['MOVIE_API_KEY']
     end
     JSON.parse(response.body, symbolize_names: true)
   end
-  
+
   def self.conn
+    private
     Faraday.new(url: 'https://api.themoviedb.org')
   end
 end

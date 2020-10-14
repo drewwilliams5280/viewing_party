@@ -15,6 +15,7 @@ class MovieFacade
     movie = movie_details(id)
     movie.reviews = reviews(movie.id)
     movie.cast = top_ten_cast(movie.id)
+    movie.trailer_url = get_trailer_url(movie.id)
     movie
   end
 
@@ -32,6 +33,14 @@ class MovieFacade
   def self.top_ten_cast(id)
     MovieService.credits(id)[:cast][0..9].map do |cast_member_details|
       CastMember.new(cast_member_details)
+    end
+  end
+
+  def self.get_trailer_url(id)
+    if MovieService.videos(id)[:results].empty?
+      "uKLSQPhERnU"
+    else
+      MovieService.videos(id)[:results][0][:key]
     end
   end
 end
