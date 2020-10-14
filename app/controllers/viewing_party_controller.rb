@@ -5,7 +5,6 @@ class ViewingPartyController < ApplicationController
   end
 
   def create
-    # require "pry"; binding.pry
-    # redirect_to '/dashboard'
+    redirect_to '/dashboard'
   end
 end
