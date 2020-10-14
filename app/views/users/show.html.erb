@@ -16,10 +16,10 @@
 
 <% if !current_user.friends.empty? %>
   <% current_user.friends.each do |friend| %>
-    <p>Name: <%= friend.name %></p>
+    <h4><%= friend.name %></h4> 
   <% end %>
 <% else %>
-  <h5>You have no friends added yet</h5>
+  <h4>You have no friends added yet</h4>
 <% end %>
 </section>
 <br>
