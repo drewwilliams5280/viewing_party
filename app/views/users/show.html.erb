@@ -8,7 +8,7 @@
   <h2>Friends</h2>
   <%= form_tag "/friendship" do %>
 
-    <%= text_field_tag :email, 'Friends Email' %>
+    <%= search_field_tag :email, nil, placeholder: 'Friends Email' %>
 
     <%= submit_tag 'Add Friend' %>
   <% end %>
@@ -16,15 +16,32 @@
 
 <% if !current_user.friends.empty? %>
   <% current_user.friends.each do |friend| %>
-    <p>Name: <%= friend.name %></p>
+    <h4><%= friend.name %></h4>
   <% end %>
 <% else %>
-  <h5>You have no friends added yet</h5>
+  <h4>You have no friends added yet</h4>
 <% end %>
 </section>
 <br>
 
-<section id='viewing-parties-<%=current_user.id%>'>
+<section id='movie-parties-<%=current_user.id%>'>
   <h2>Viewing Parties</h2>
-
+  <% if !current_user.movie_parties.empty? %>
+    <% current_user.movie_parties.each do |party| %>
+      <h3><%= party.movie_title %></h3>
+      <br>
+      <h3><%= party.date %> at <%= party.time %></h3>
+      <br>
+      <h3>Hosting</h3>
+    <% end %>
+  <% end %>
+  <% if !current_user.parties_invited_to.empty? %>
+    <% current_user.parties_invited_to.each do |party| %>
+      <h3><%= party.movie_title %></h3>
+      <br>
+      <h3><%= party.date %> at <%= party.time %></h3>
+      <br>
+      <h3>Invited</h3>
+    <% end %>
+  <% end %>
 </section>
