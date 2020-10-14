@@ -5,6 +5,9 @@ class Movie
               :vote_average,
               :title,
               :runtime
+  attr_accessor :reviews,
+                :cast
+
   def initialize(attributes)
     @attributes = attributes
     @id = attributes[:id]
@@ -12,6 +15,8 @@ class Movie
     @vote_average = attributes[:vote_average]
     @title = attributes[:title]
     @runtime = attributes[:runtime]
+    @reviews = []
+    @cast = []
   end
 
   def genres
