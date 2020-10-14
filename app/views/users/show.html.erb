@@ -8,7 +8,7 @@
   <h2>Friends</h2>
   <%= form_tag "/friendship" do %>
 
-    <%= text_field_tag :email, 'Friends Email' %>
+    <%= search_field_tag :email, nil, placeholder: 'Friends Email' %>
 
     <%= submit_tag 'Add Friend' %>
   <% end %>
