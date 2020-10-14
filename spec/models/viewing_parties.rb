@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ViewingParty do
+describe ViewingParties do
   describe "relationships" do
     it { should have_many :party_guests }
     it { should have_many(:guests).through(:party_guests) }

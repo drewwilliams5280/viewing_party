@@ -40,7 +40,7 @@ RSpec.describe 'New viewing party page' do
     expect(current_path).to eq("/viewing_party/new")
     # save_and_open_page
     expect(page).to have_content(@movie.title)
-    expect(find_field(:duration).value).to eq("#{@movie.runtime}")
+    expect(find_field(:runtime).value).to eq("#{@movie.runtime}")
     expect(page).to have_field(:date)
     fill_in :date, with: "10/13/2020"
     expect(page).to have_field(:time)
@@ -51,6 +51,14 @@ RSpec.describe 'New viewing party page' do
     check("#{@hank.name}")
     expect(page).to have_button("Create Party")
     click_on "Create Party"
+    expect(ViewingParty.count).to eq(1)
+    expect(ViewingParty.first.movie_title).to eq(@movie.title)
+    expect(ViewingParty.first.movie_id).to eq(@movie.id)
+    expect(ViewingParty.first.runtime).to eq(@movie.runtime)
+    expect(ViewingParty.first.date).to eq("10/13/2020")
+    expect(ViewingParty.first.time).to eq("4:00")
+    expect(ViewingParty.first.user).to eq(@drewni)
+    expect(ViewingParty.first.guests).to eq([@hank, @homer])
 
     expect(current_path).to eq("/dashboard")
   end
