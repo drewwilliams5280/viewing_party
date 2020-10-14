@@ -64,7 +64,7 @@ RSpec.describe "Movies show page" do
     it "has button to create viewing party", :vcr do
       expect(page).to have_button("Create Viewing Party")
       click_on "Create Viewing Party"
-      expect(current_path).to eq("/viewing_party/new")
+      expect(current_path).to eq("/party_viewings/new")
     end
 
     it "has movie details", :vcr do

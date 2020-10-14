@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
 
     @movies = MovieFacade.top_rated
   end
- #create a 'get_movie_details in the movies facade and call just that in the show'
+ 
   def show
     @movie = MovieFacade.get_movie_details(params[:id])
   end
