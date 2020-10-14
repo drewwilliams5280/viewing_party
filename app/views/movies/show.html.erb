@@ -14,12 +14,12 @@
 <p><%= @movie.summary %></p>
 <section class='cast'>
   <h3>Cast</h3>
-  <% @cast.each do |cast_member| %>
+  <% @movie.cast.each do |cast_member| %>
     <p><%= cast_member.name %> as <%= cast_member.character %></p>
   <% end %>
 </section>
-<h3><%= @reviews.size %> Reviews</h3>
-<% @reviews.each do |review| %>
+<h3><%= @movie.reviews.size %> Reviews</h3>
+<% @movie.reviews.each do |review| %>
   <h4>Author: <%= review.author %></h4>
   <p><%= review.content %></p>
 <% end %>

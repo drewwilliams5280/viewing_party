@@ -11,6 +11,13 @@ class MovieFacade
     end
   end
 
+  def self.get_movie_details(id)
+    movie = movie_details(id)
+    movie.reviews = reviews(movie.id)
+    movie.cast = top_ten_cast(movie.id)
+    movie
+  end
+
   def self.movie_details(id)
     movie_details = MovieService.movie_details(id)
     Movie.new(movie_details)
