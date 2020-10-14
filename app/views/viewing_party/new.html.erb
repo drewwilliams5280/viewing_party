@@ -1,12 +1,12 @@
 <center>
   <h1>Welcome <%= current_user.name %>!</h1>
 
-  <%= form_tag "/viewing_party/create" do %>
+  <%= form_tag "/viewing_party" do %>
     <p><%= @movie.title %></p>
     <%= hidden_field_tag :movie_id, @movie.id %>
-
+    <br>
     <%= label_tag :duration, "Duration of Party in minutes" %>
-    <%= text_field_tag :duration, "{@movie.runtime}" %>
+    <%= number_field_tag :duration, @movie.runtime %>
     <br>
     <%= label_tag :date, "Date" %>
     <%= date_field_tag :date %>
@@ -21,7 +21,7 @@
       <p>Sorry, you have no friends to invite.</p>
     <% else %>
       <div class="checkbox, friends">
-        <%= collection_check_boxes(:friends_ids, current_user.id, current_user.friends, :id, :email) %>
+        <%= collection_check_boxes(:users, current_user.id, current_user.friends, :id, :name) %>
       </div>
     <% end %>
     <br>
