@@ -3,4 +3,9 @@ class ViewingPartyController < ApplicationController
   def new
     @movie = MovieFacade.movie_details(params[:id])
   end
+
+  def create
+    # require "pry"; binding.pry
+    # redirect_to '/dashboard'
+  end
 end
