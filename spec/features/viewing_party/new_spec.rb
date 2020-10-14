@@ -52,6 +52,6 @@ RSpec.describe 'New viewing party page' do
     expect(page).to have_button("Create Party")
     click_on "Create Party"
 
-    expect(current_path).to eq("/viewing_party")
+    expect(current_path).to eq("/dashboard")
   end
 end
