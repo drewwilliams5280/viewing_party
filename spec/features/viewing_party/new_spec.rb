@@ -37,7 +37,7 @@ RSpec.describe 'New viewing party page' do
   end
 
   it "can see a form with the following details", :vcr do
-    expect(current_path).to eq("/viewing_party/new")
+    expect(current_path).to eq("/movie_parties/new")
     # save_and_open_page
     expect(page).to have_content(@movie.title)
     expect(find_field(:runtime).value).to eq("#{@movie.runtime}")
@@ -51,14 +51,14 @@ RSpec.describe 'New viewing party page' do
     check("#{@hank.name}")
     expect(page).to have_button("Create Party")
     click_on "Create Party"
-    expect(ViewingParty.count).to eq(1)
-    expect(ViewingParty.first.movie_title).to eq(@movie.title)
-    expect(ViewingParty.first.movie_id).to eq(@movie.id)
-    expect(ViewingParty.first.runtime).to eq(@movie.runtime)
-    expect(ViewingParty.first.date).to eq("10/13/2020")
-    expect(ViewingParty.first.time).to eq("4:00")
-    expect(ViewingParty.first.user).to eq(@drewni)
-    expect(ViewingParty.first.guests).to eq([@hank, @homer])
+    expect(MovieParty.count).to eq(1)
+    expect(MovieParty.first.movie_title).to eq(@movie.title)
+    expect(MovieParty.first.movie_id).to eq(@movie.id)
+    expect(MovieParty.first.runtime).to eq(@movie.runtime)
+    expect(MovieParty.first.date).to eq("10/13/2020")
+    expect(MovieParty.first.time).to eq("4:00")
+    expect(MovieParty.first.user).to eq(@drewni)
+    expect(MovieParty.first.guests).to eq([@hank, @homer])
 
     expect(current_path).to eq("/dashboard")
   end

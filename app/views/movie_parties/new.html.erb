@@ -1,7 +1,7 @@
 <center>
   <h1>Welcome <%= current_user.name %>!</h1>
 
-  <%= form_tag "/viewing_party" do %>
+  <%= form_tag "/movie_parties" do %>
     <p><%= @movie.title %></p>
     <%= hidden_field_tag :movie_id, @movie.id %>
     <%= hidden_field_tag :movie_title, @movie.title %>
