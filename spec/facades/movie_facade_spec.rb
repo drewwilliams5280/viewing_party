@@ -12,6 +12,12 @@ RSpec.describe 'Movie Facade' do
     expect(movies.first).to be_a(Movie)
     expect(movies.first.title).to be_a(String)
   end
+  it 'returns a list of movie objects for upcoming movies', :vcr do
+    movies = MovieFacade.upcoming
+    expect(movies).to be_an(Array)
+    expect(movies.first).to be_a(Movie)
+    expect(movies.first.title).to be_a(String)
+  end
   it "can get reviews", :vcr do
     movie = MovieFacade.search('shawshank redemption').last
     reviews = MovieFacade.reviews(movie.id)
@@ -26,5 +32,10 @@ RSpec.describe 'Movie Facade' do
     expect(cast.first).to be_a(CastMember)
     expect(cast.first.name).to be_a(String)
     expect(cast.first.character).to be_a(String)
+  end
+  it "can get trailer", :vcr do
+    movie = MovieFacade.get_movie_details(40096)
+    expect(movie.trailer_url).to be_a(String)
+    expect(movie.trailer_url).to eq('uKLSQPhERnU')
   end
 end
