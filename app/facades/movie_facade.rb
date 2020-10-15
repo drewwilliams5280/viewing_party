@@ -11,6 +11,12 @@ class MovieFacade
     end
   end
 
+  def self.upcoming
+    MovieService.upcoming[:results].map do |upcoming_details|
+      Movie.new(upcoming_details)
+    end
+  end
+
   def self.get_movie_details(id)
     movie = movie_details(id)
     movie.reviews = reviews(movie.id)
@@ -43,4 +49,5 @@ class MovieFacade
       MovieService.videos(id)[:results][0][:key]
     end
   end
+
 end

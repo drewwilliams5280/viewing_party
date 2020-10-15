@@ -23,6 +23,10 @@ class MovieService
     to_json("/3/movie/#{id}/videos")
   end
 
+  def self.upcoming
+    to_json('/3/movie/upcoming')
+  end
+
   def self.top_rated_page_one
     to_json('/3/movie/top_rated', { language: 'en-US', page: 1 })
   end
