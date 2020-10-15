@@ -56,4 +56,25 @@ RSpec.describe MovieService do
     expect(results.first).to have_key :author
     expect(results.first).to have_key :content
   end
+
+  it 'can get movie videos', :vcr do
+    videos = MovieService.videos(278)
+    expect(videos).to be_a Hash
+    expect(videos).to have_key :results
+    results = videos[:results]
+    expect(results).to be_an(Array)
+    expect(results.first).to be_an(Hash)
+    expect(results.first).to have_key :key
+  end
+
+  it 'can get upcoming movie', :vcr do
+    upcoming = MovieService.upcoming
+    expect(upcoming).to be_a Hash
+    expect(upcoming).to have_key :results
+    results = upcoming[:results]
+    expect(results).to be_an(Array)
+    expect(results.first).to be_an(Hash)
+    expect(results.first).to have_key :title
+    expect(results.first).to have_key :vote_average
+  end
 end
