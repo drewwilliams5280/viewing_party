@@ -2,6 +2,7 @@
   <h2>Welcome <%= current_user.name %>!</h2>
 </center>
 <h1><%= @movie.title %></h1>
+<iframe width="500" height="250" src="http://www.youtube.com/embed/<%= @movie.trailer_url %>"frameborder="0"></iframe>
 <%= button_to 'Create Viewing Party', '/movie_parties/new', :params => {:id => @movie.id}, method: :get %>
 <h3>Vote Average:</h3><%= @movie.vote_average %>
 <h3>Runtime:</h3><%= @movie.runtime_in_hours %>

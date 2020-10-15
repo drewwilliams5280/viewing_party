@@ -19,4 +19,10 @@ RSpec.describe "As a user" do
     click_on "Find Movies"
     expect(current_path).to eq('/movies')
   end
+
+  it "can see button for upcoming movies", :vcr do
+    expect(page).to have_button("Find Upcoming Movies")
+    click_on "Find Upcoming Movies"
+    expect(current_path).to eq('/movies')
+  end
 end

@@ -4,5 +4,5 @@ class MovieParty < ApplicationRecord
 
   belongs_to :user
 
-  validates_presence_of :movie_title, :movie_id, :runtime, :date, :time
+  validates :movie_title, :movie_id, :runtime, :date, :time, presence: true
 end

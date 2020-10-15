@@ -11,10 +11,17 @@ class MovieFacade
     end
   end
 
+  def self.upcoming
+    MovieService.upcoming[:results].map do |upcoming_details|
+      Movie.new(upcoming_details)
+    end
+  end
+
   def self.get_movie_details(id)
     movie = movie_details(id)
     movie.reviews = reviews(movie.id)
     movie.cast = top_ten_cast(movie.id)
+    movie.trailer_url = get_trailer_url(movie.id)
     movie
   end
 
@@ -34,4 +41,13 @@ class MovieFacade
       CastMember.new(cast_member_details)
     end
   end
+
+  def self.get_trailer_url(id)
+    if MovieService.videos(id)[:results].empty?
+      "uKLSQPhERnU"
+    else
+      MovieService.videos(id)[:results][0][:key]
+    end
+  end
+
 end
