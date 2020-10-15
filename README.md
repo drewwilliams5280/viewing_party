@@ -1,6 +1,8 @@
-# Viewing Party
+# [Viewing Party](https://github.com/drewwilliams5280/viewing_party)
 
-Viewing party is an application that utilized the Movie Database API. In which users can explore movie options and create a viewing party event for the user and their friend's.
+Viewing party is an application that utilizes the Movie Database API. In which users can explore movie options and create a viewing party event for the user and their friends.
+
+[Heroku app](https://viewing-party-drew.herokuapp.com/)
 
 ## Summary
 
@@ -45,14 +47,12 @@ To run a specific test, you will use `bundle exec rspec:<test line number goes h
 
 ## Deployment
 
-ADD INSTRUCTIONS FOR DEPLOYING TO HEROKU FROM THE COMMAND LINE
-
-<!-- ## Built With
-
-  - [Contributor Covenant](https://www.contributor-covenant.org/) - Used
-    for the Code of Conduct
-  - [Creative Commons](https://creativecommons.org/) - Used to choose
-    the license -->
+From the command line, do the following:
+  - `heroku create`
+  - `git push heroku master`
+  - `heroku run rake db:migrate`
+  - You may also want to run the following command to seed your heroku database:
+  - `heroku run rake db:seed`
 
 ## Authors
 
