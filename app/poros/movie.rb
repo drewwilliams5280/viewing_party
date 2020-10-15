@@ -17,7 +17,7 @@ class Movie
     @runtime = attributes[:runtime]
     @reviews = []
     @cast = []
-    @trailer_url = ""
+    @trailer_url = ''
   end
 
   def genres

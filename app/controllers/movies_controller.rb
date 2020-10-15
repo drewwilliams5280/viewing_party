@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   def index
     return @movies = MovieFacade.search(params[:search]) if params[:search]
     return @movies = MovieFacade.upcoming if params[:upcoming]
+
     @movies = MovieFacade.top_rated
   end
 

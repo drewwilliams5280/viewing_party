@@ -44,10 +44,9 @@ class MovieFacade
 
   def self.get_trailer_url(id)
     if MovieService.videos(id)[:results].empty?
-      "uKLSQPhERnU"
+      'uKLSQPhERnU'
     else
       MovieService.videos(id)[:results][0][:key]
     end
   end
-
 end
