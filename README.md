@@ -56,5 +56,5 @@ From the command line, do the following:
 
 ## Authors
 
-  - **Drew Williams** (do we need to incorporate our GitHub?)
-  - **Dani Coleman**
+  - [**Drew Williams**](https://github.com/drewwilliams5280)
+  - [**Dani Coleman**](https://github.com/dcoleman21)
