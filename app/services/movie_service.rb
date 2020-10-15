@@ -4,7 +4,11 @@ class MovieService
   end
 
   def self.search(keyword)
-    (search_page_one(keyword)[:results] + search_page_two(keyword)[:results]).flatten
+    if keyword != ''
+      (search_page_one(keyword)[:results] + search_page_two(keyword)[:results]).flatten
+    else
+      top_rated
+    end
   end
 
   def self.movie_details(id)

@@ -7,6 +7,6 @@
   <br>
   <%= form_tag movies_path, method: :get do %>
     <%= search_field_tag :search, nil, placeholder: 'Search by movie title' %>
-    <%= submit_tag 'Find Movies' %>
+    <%= submit_tag 'Find Movies', data: { disable_with: "Please enter keyword" } %>
   <% end %>
 </center>

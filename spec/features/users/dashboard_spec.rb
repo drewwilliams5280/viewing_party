@@ -23,6 +23,31 @@ RSpec.describe "As a visitor" do
     expect(page).to have_content("Welcome #{@user.name}!")
   end
 
+  it "I can log out" do
+    visit '/'
+    fill_in "email", with: @user.email
+    fill_in "password", with: "123"
+
+    click_on "Log In"
+
+    expect(page).to have_button("Logout")
+
+    click_on "Logout"
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("You have been logged out")
+  end
+
+  it "can give flash message with no login info" do
+    visit '/'
+    fill_in "email", with: ''
+    fill_in "password", with: ''
+
+    click_on "Log In"
+
+    expect(page).to have_content("Your login credentials are incorrect")
+  end
+
   it "displays error message when not logged in and visiting dashboard" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(nil)
 
