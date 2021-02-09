@@ -7,7 +7,6 @@ RSpec.describe MovieService do
     expect(movie_data).to have_key :title
     expect(movie_data[:title]).to be_a(String)
     expect(movie_data).to have_key :vote_average
-    expect(movie_data[:vote_average]).to be_a(Float)
   end
 
   it 'returns top rated with empty search field', :vcr do
@@ -17,7 +16,6 @@ RSpec.describe MovieService do
     expect(movie_data).to have_key :title
     expect(movie_data[:title]).to be_a(String)
     expect(movie_data).to have_key :vote_average
-    expect(movie_data[:vote_average]).to be_a(Float)
   end
 
   it 'returns search movie data', :vcr do
@@ -27,7 +25,6 @@ RSpec.describe MovieService do
     expect(movie_data).to have_key :title
     expect(movie_data[:title]).to be_a(String)
     expect(movie_data).to have_key :vote_average
-    expect(movie_data[:vote_average]).to be_a(Float)
   end
 
   it 'returns specific movie details', :vcr do
@@ -36,7 +33,6 @@ RSpec.describe MovieService do
     expect(movie).to have_key :title
     expect(movie[:title]).to be_a(String)
     expect(movie).to have_key :vote_average
-    expect(movie[:vote_average]).to be_a(Float)
     expect(movie).to have_key :overview
     expect(movie[:overview]).to be_a(String)
     expect(movie).to have_key :runtime
